@@ -8,6 +8,7 @@ public class FinishUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI successesText;
     [SerializeField] private TextMeshProUGUI failuresText;
+    [SerializeField] private DeliveryManager deliveryManager;
 
     private void Start()
     {
@@ -22,8 +23,8 @@ public class FinishUI : MonoBehaviour
         {
             Show();
 
-            successesText.text = DeliveryManager.Instance.GetSuccesses().ToString();
-            failuresText.text = DeliveryManager.Instance.GetFailures().ToString();
+            successesText.text = deliveryManager.GetSuccesses().ToString();
+            failuresText.text = deliveryManager.GetFailures().ToString();
         }
         else
         {

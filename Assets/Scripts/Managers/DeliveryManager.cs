@@ -10,8 +10,6 @@ public class DeliveryManager : MonoBehaviour
     public event EventHandler OnDeliverySuccess;
     public event EventHandler OnDeliveryFail;
 
-    public static DeliveryManager Instance { get; private set; }
-
     [SerializeField] private RecipeListSO recipeList;
 
     private List<RecipeSO> waitingList;
@@ -24,7 +22,6 @@ public class DeliveryManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
         waitingList = new List<RecipeSO>();
     }
 

@@ -10,6 +10,7 @@ public class SFXManager : MonoBehaviour
     public static SFXManager Instance { get; private set; }
 
     [SerializeField] private AudioClipRefsSO audioClipReferences;
+    [SerializeField] private DeliveryManager deliveryManager;
 
     private float volume = 1f;
 
@@ -22,8 +23,8 @@ public class SFXManager : MonoBehaviour
 
     private void Start()
     {
-        DeliveryManager.Instance.OnDeliverySuccess += DeliveryManager_OnDeliverySuccess;
-        DeliveryManager.Instance.OnDeliveryFail += DeliveryManager_OnDeliveryFail;
+        deliveryManager.OnDeliverySuccess += DeliveryManager_OnDeliverySuccess;
+        deliveryManager.OnDeliveryFail += DeliveryManager_OnDeliveryFail;
         CuttingCounter.OnCutAny += CuttingCounter_OnCutAny;
         Player.Instance.OnPickup += Player_OnPickup;
         BaseCounter.OnObjectPlace += BaseCounter_OnObjectPlace;

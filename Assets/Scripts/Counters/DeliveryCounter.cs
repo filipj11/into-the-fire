@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeliveryCounter : BaseCounter
 {
+    [SerializeField] private DeliveryManager deliveryManager;
     public static DeliveryCounter Instance { get; private set; }
 
     private void Awake()
@@ -18,8 +19,7 @@ public class DeliveryCounter : BaseCounter
             if (player.GetKitchenObject().TryGetPlate(out Plate plate))
             {
                 // Delivery should only accept plates
-
-                DeliveryManager.Instance.DeliverRecipe(plate);
+                deliveryManager.DeliverRecipe(plate);
                 player.GetKitchenObject().DestroySelf();
             }
         }
