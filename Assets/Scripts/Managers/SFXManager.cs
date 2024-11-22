@@ -11,6 +11,7 @@ public class SFXManager : MonoBehaviour
 
     [SerializeField] private AudioClipRefsSO audioClipReferences;
     [SerializeField] private DeliveryManager deliveryManager;
+    [SerializeField] private Player player;
 
     private float volume = 1f;
 
@@ -26,7 +27,7 @@ public class SFXManager : MonoBehaviour
         deliveryManager.OnDeliverySuccess += DeliveryManager_OnDeliverySuccess;
         deliveryManager.OnDeliveryFail += DeliveryManager_OnDeliveryFail;
         CuttingCounter.OnCutAny += CuttingCounter_OnCutAny;
-        Player.Instance.OnPickup += Player_OnPickup;
+        player.OnPickup += Player_OnPickup;
         BaseCounter.OnObjectPlace += BaseCounter_OnObjectPlace;
         TrashCan.OnThrowAway += TrashCan_OnThrowAway;
     }
@@ -45,7 +46,7 @@ public class SFXManager : MonoBehaviour
 
     private void Player_OnPickup(object sender, EventArgs e)
     {
-        PlaySFX(audioClipReferences.objectPickup, Player.Instance.transform.position);
+        PlaySFX(audioClipReferences.objectPickup, player.transform.position);
     }
 
     private void CuttingCounter_OnCutAny(object sender, EventArgs e)

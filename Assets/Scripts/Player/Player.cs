@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IKitchenObjectParent
 {
-    public static Player Instance { get; private set; }
-
     public event EventHandler OnPickup;
     public event EventHandler<OnSelectedCounterChangeEventArgs> OnSelectedCounterChange;
     public class OnSelectedCounterChangeEventArgs : EventArgs
@@ -23,15 +21,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private Vector3 lastInteractionVector;
     private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
-
-    private void Awake()
-    {
-        if (Instance != null) {
-            Debug.Log("Uh oh! Too many instances of player!"); 
-        }
-
-        Instance = this;
-    }
 
     private void Start()
     {

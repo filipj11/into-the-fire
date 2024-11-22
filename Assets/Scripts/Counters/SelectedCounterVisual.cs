@@ -7,10 +7,11 @@ public class SelectedCounterVisual : MonoBehaviour
 {
     [SerializeField] private BaseCounter baseCounter;
     [SerializeField] private GameObject[] visualGameObjectArray;
+    [SerializeField] private Player player;
 
     private void Start()
     {
-        Player.Instance.OnSelectedCounterChange += Player_OnSelectedCounterChange;
+        player.OnSelectedCounterChange += Player_OnSelectedCounterChange;
     }
 
     private void Player_OnSelectedCounterChange(object sender, Player.OnSelectedCounterChangeEventArgs e)
